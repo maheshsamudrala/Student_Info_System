@@ -50,11 +50,16 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i  class="fa fa-bullhorn"></i>&nbsp;Announcements</a></li> 
+     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/announcementPages/addAnnouncement.jsp"><i  class="fa fa-bullhorn"></i>&nbsp;Add Announcements</a></li> 
    
 </ul>
 </div>
-
+<div class="frame1">
+<ul class="nav nav-pills nav-stacked">
+     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/announcementPages/deleteAnnouncement.jsp"><i  class="fa fa-bullhorn"></i>&nbsp;Delete Announcements</a></li> 
+   
+</ul>
+</div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
      <li  class="active"><a href="#"><i  class="fa fa-newspaper-o"></i>&nbsp;News</a></li> 

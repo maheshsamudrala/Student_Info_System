@@ -16,26 +16,33 @@
 		<br><br>
 		<s:set name="msg" value="message"/>
   		<s:if test="%{#msg=='success'}">
-  			<h2 align="center">Announcement Added Successfully</h2>
+  			<h3 align="center">Announcement Added Successfully</h3><br><br>
   		</s:if>
   		<s:else>
-  		<h2 align="center"><label class="control-label"><s:property value="msg"/> </label></h2>			
+  		<h3 align="center"><label class="control-label"><s:property value="msg"/> </label></h3>	<br><br>		
   		</s:else>
 		<form class="form-horizental" action="AddAnnouncement" method="post"  >
   				<div class="form-group">
       				<label  class="col-lg-4 control-label">Announcement ID</label> 
      				 <div class="col-lg-4">
-							<input type="text" class="form-control" placeholder="Type Announcement ID here" name="id" >     			 		
+							<input type="text" class="form-control" placeholder="Type Announcement ID here" name="announcementId" >     			 		
       				</div>
      			  <br><br>
    				 </div>
    				 <div class="form-group">
       				<label  class="col-lg-4 control-label">Announcement </label> 
      				 <div class="col-lg-4">
-							<textarea rows="3" class="form-control" placeholder="Type Announcement here" name="announcement_text" cols="15"></textarea>     			 		
+							<textarea rows="3" class="form-control" placeholder="Type Announcement here" name="announcementText" cols="15"></textarea>     			 		
       				</div>
-     			  <br><br>
+     			  
    				 </div>
+   				 <br><br><br>
+     			  <br><br><br>
+   				  <div class="form-group">
+      						<div class="col-lg-10 col-lg-offset-4"><input type="submit" value="Submit"  class="btn btn-primary" />
+       						 <input type="reset" class="btn btn-default" name="Reset"/>
+     						 </div>
+    				</div>
    		</form>
    		<br><br><br>
    			</div>

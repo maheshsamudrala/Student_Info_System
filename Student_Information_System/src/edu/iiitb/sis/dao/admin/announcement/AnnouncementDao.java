@@ -2,6 +2,9 @@ package edu.iiitb.sis.dao.admin.announcement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import edu.iiitb.sis.dbUtil.ConnectionPool;
 import edu.iiitb.sis.model.Announcement;
@@ -59,5 +62,28 @@ public class AnnouncementDao
 			return "failure";
 		}
 	}
-	
+	public ArrayList<String> getAnnouncements()
+	{
+		ArrayList<String> announcementList=new ArrayList<String>();
+		Connection con=ConnectionPool.getConnection();
+		Statement announcementStmt=null;
+		String query;
+		ResultSet rs=null;
+		try
+		{
+			query="select announcements_info from announcements ";
+			announcementStmt=con.createStatement();
+			rs=announcementStmt.executeQuery(query);
+			while(rs.next())
+			{
+				announcementList.add(rs.getString("announcements_info"));
+			}
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return announcementList; 
+	}
 }

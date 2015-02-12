@@ -18,6 +18,7 @@ public class AuthenticationDao
 	
 	*/
 	
+	
 	public String checkLogin(Login login)
 	{
 		
@@ -92,6 +93,10 @@ public class AuthenticationDao
 			{
 				user.setName(rs.getString("student_name"));
 				user.setEmail(rs.getString("student_mail"));
+			}
+			else
+			{
+				return null;
 			}
 			user.setPassword(getPassword(rollNumber));
 			System.out.println("Roll Number "+rollNumber);

@@ -39,8 +39,9 @@ public class SendEmail
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(user.getEmail()));
             message.setSubject("Password");
-            message.setText("Hi," +
-                    "Welcome To Student Information System.\n"+"Your User Name :"+"Your Password is :"+user.getPassword());
+            message.setText("Hi " +user.getName()+","+
+                    "\n\nWelcome To Student Information System.\n\n"+"Your User Name :"+user.getLoginId()+"\nYour Password is :"+user.getPassword()+
+                    "\n\nThanks and Regards,\n"+"SIS Team.");
 
             Transport.send(message);
 

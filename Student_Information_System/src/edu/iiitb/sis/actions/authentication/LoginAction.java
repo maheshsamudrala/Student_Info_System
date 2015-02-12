@@ -1,10 +1,12 @@
 package edu.iiitb.sis.actions.authentication;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
 import edu.iiitb.sis.dao.AuthenticationDao;
+import edu.iiitb.sis.dao.admin.announcement.AnnouncementDao;
 
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -14,6 +16,8 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 {
 	private Login login=new Login();
 	private String message;
+	private ArrayList<String> announcementList=new ArrayList<String>();
+	private AnnouncementDao announcementDao=new AnnouncementDao();
 	AuthenticationDao authenticate=new AuthenticationDao();
 	private SessionMap<String,Object> sessionMap;  
 	private Map session;
@@ -36,6 +40,11 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 	{
 		message=authenticate.checkLogin(login);
 		//System.out.println(message);
+		announcementList=announcementDao.getAnnouncements();
+		for(String str:announcementList)
+		{
+			System.out.println(str);
+		}
 		if(message.equalsIgnoreCase("Admin"))
 		{
 			return "Admin";
@@ -77,7 +86,14 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 	{
 		return login;
 	}
-
+	public ArrayList<String> getAnnouncementList()
+	{
+		return announcementList;
+	}
+	public void setAnnouncementList(ArrayList<String> announcementList)
+	{
+		this.announcementList = announcementList;
+	}
 	
 
 

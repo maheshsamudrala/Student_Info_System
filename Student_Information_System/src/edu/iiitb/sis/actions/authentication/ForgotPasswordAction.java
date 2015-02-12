@@ -20,8 +20,14 @@ public class ForgotPasswordAction extends ActionSupport
 	public String execute()
 	{
 		user=authenticationDao.getUserDetails(rollNumber);
+		if(user==null)
+		{
+			message="Invalid User Name";
+			return "failure";
+		}
 		if(sendMail.sendPasswordDetails(user).equalsIgnoreCase("success"))
 		{
+			message="Password has been sent to your Mail.";
 			return "success";
 
 		}

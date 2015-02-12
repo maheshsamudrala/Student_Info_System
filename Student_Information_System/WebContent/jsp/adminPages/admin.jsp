@@ -1,6 +1,8 @@
 <!-- THIS IS THE ADMIN STATIC PAGE  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="s" uri="/struts-tags"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -91,7 +93,13 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i  class="fa fa-bullhorn"></i>&nbsp;Announcements</a></li> 
+     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/announcementPages/addAnnouncement.jsp"><i  class="fa fa-bullhorn"></i>&nbsp;Add Announcements</a></li> 
+   
+</ul>
+</div>
+<div class="frame1">
+<ul class="nav nav-pills nav-stacked">
+     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/announcementPages/deleteAnnouncement.jsp"><i  class="fa fa-bullhorn"></i>&nbsp;Delete Announcements</a></li> 
    
 </ul>
 </div>
@@ -131,8 +139,9 @@
 <h3>ANNOUNCEMENTS</h3>
 <marquee  onMouseOver="this.scrollAmount=1" onMouseOut="this.scrollAmount=2" scrollamount="2" direction="up" loop="true" width="100%">
  
-Scroll of announcements
-
+ <s:iterator value="announcementList" >
+<s:property /><br><br>
+</s:iterator>
 <!-- 	<li><a href="http://www.ndtv.com/article/cheat-sheet/barack-obama-s-thumbs-up-for-daredevil-stunt-riders-at-republic-day-parade-10-developments-653780?pfrom=home-lateststories"><span class="glyphicon glyphicon-pushpin"></span> <i style="font-family: ; color:blue">Barack Obama's Thumbs Up for Daredevil Stunt Riders at Republic Day Parade: 10 Developments</i></a></li>
     <li><a href="http://sports.ndtv.com/australia-tri-series-2015/news/236589-tri-series-rain-gods-offer-india-lifeline-can-mahendra-singh-dhoni-co-take-it?pfrom=home-cricket"><span class="glyphicon glyphicon-pushpin"></span> <i style="font-family: ; color:blue">Can MS Dhoni & Co. Take the Rain Gods' Lifeline? </a></li>
        <li><a href="http://auto.ndtv.com/news/indian-students-develop-vehicle-that-delivers-mileage-of-200km-l-733735?pfrom=home-auto"><span class="glyphicon glyphicon-pushpin"></span> <i style="font-family: ; color:blue">Indian Students Develop Vehicle That Delivers Mileage of 200Km/l</a></li> 

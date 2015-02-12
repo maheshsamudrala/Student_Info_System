@@ -53,8 +53,19 @@
       </action>
       
        <action name="forgotPassword" class="edu.iiitb.sis.actions.authentication.ForgotPasswordAction"  method ="execute">
-        <result name="success">/jsp/adminPages/studentPages/searchStudentToUpdate.jsp</result> 
-        <result name="failure">/jsp/index.jsp</result>
+        <result name="success">/jsp/index.jsp</result> 
+        <result name="failure">/jsp/forgotPassword.jsp</result>
       </action>
+      
+      <action name="AddAnnouncement" class="edu.iiitb.sis.actions.admin.announcement.AddAnnouncementAction"  method ="execute">
+        <result name="success">/jsp/adminPages/announcementPages/addAnnouncement.jsp</result> 
+        <result name="failure">/jsp/adminPages/announcementPages/addAnnouncement.jsp</result>
+      </action>
+      
+       <action name="deleteAnnouncement" class="edu.iiitb.sis.actions.admin.announcement.DeleteAnnouncement"  method ="execute">
+        <result name="success">/jsp/adminPages/announcementPages/deleteAnnouncement.jsp</result> 
+        <result name="failure">/jsp/adminPages/announcementPages/deleteAnnouncement.jsp</result>
+      </action>
+      
   </package>
 </struts>
