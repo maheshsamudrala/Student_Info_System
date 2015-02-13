@@ -27,62 +27,60 @@
   			<h2 align="center"><label class="control-label"><s:property value="msg"/> </label></h2>			
   		</s:else>
   		
-	<form class="form-horizental" action="updateFacultyDetails" method="post" enctype="multipart/form-data" >
+		<form class="form-horizental" action="updateFacultyDetails" method="post"  >
   					<div class="form-group">
-      					<label  class="col-lg-3 control-label">Student Name</label> 
+      					<label  class="col-lg-3 control-label">Faculty User Name</label> 
      					 <div class="col-lg-4">
      					 		<div class="input-group">
      					 			<span class="input-group-addon" id="basic-addon1">
      					 				  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
      					 			</span>
-       							 <input type="text" class="form-control" value="<s:property value="student.studentName"/>" name="studentName" readOnly>
+       							 <input type="text" class="form-control" value="<s:property value="facultyModelObj.facultyUserName"/>" name="facultyUserName" readOnly>
+       							 </div>       							
+       							  
+      					</div>
+     					  <br><br>
+   					 </div>
+  					<div class="form-group">
+      					<label  class="col-lg-3 control-label">Faculty Name</label> 
+     					 <div class="col-lg-4">
+     					 		<div class="input-group">
+     					 			<span class="input-group-addon" id="basic-addon1">
+     					 				  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+     					 			</span>
+       							 <input type="text" class="form-control" value="<s:property value="facultyModelObj.facultyName"/>" name="facultyName" readOnly>
        							 </div>       							
        							  
       					</div>
      					  <br><br>
    					 </div>
    					
-  					<div class="form-group">
-      					<label  class="col-lg-3 control-label">Roll Number</label>
-     					 <div class="col-lg-4">
-       							 <input type="text" class="form-control"  value="<s:property value="student.studentRollNo"/>" name="studentRollNo" readOnly>
-     					 </div>
-     					<br><br> 
-   					 </div>
-   					 <div class="form-group">
-      					<label  class="col-lg-3 control-label">Date Of Birth</label>
-     					 <div class="col-lg-4">
-       							<input type="date" class="form-control"  value="<s:property value="student.dateOfBirth"/>" name="dateOfBirth" > 
-       							 
-     					 </div>
-     					<br><br> 
-   					 </div>
    					 <div class="form-group">
       					<label  class="col-lg-3 control-label">Email</label>
      					 <div class="col-lg-4">
-       							 <input type="text" class="form-control"  value="<s:property value="student.email"/>" name="email"  >
+       							 <input type="text" class="form-control"  value="<s:property value="facultyModelObj.email"/>" name="email"  >
      					 </div>
      					<br><br> 
    					 </div>
    					 <div class="form-group">
       					<label  class="col-lg-3 control-label">Phone Number</label>
      					 <div class="col-lg-4">
-       							 <input type="text" class="form-control"  value="<s:property value="student.phoneNumber"/>" name="phoneNumber" >
+       							 <input type="text" class="form-control"  value="<s:property value="facultyModelObj.phoneNumber"/>" name="phoneNumber" >
      					 </div>
      					<br><br> 
    					 </div>
    					 <div class="form-group">
-      					<label  class="col-lg-3 control-label">Address</label>
+      					<label  class="col-lg-3 control-label">Qualifications</label>
      					 <div class="col-lg-4">
-       							 <textarea class="form-control"  name="address" ><s:property value="student.address"/></textarea>
+       							 <textarea class="form-control"  name="qualifications" ><s:property value="facultyModelObj.qualifications"/></textarea>
      					 </div>
      					<br><br><br><br> 
    					 </div>
    					 <div class="form-group">
       					<label  class="col-lg-3 control-label">Status</label>
      					 <div class="col-lg-4">
-     					 	<s:set name="selected" value="student.status"/>
-     					 	<select class="form-control">
+     					 	<s:set name="selected" value="facultyModelObj.status"/>
+     					 	<select class="form-control" name="status">
        							 	<s:if test="%{#selected=='Active'}">
   									  	<option value="Active" selected>Active</option>
   									  	<option value="Inactive">InActive</option>		

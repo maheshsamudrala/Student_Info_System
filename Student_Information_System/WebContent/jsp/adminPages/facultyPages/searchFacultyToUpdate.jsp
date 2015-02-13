@@ -17,10 +17,9 @@
 			  <div class="col-lg-2"></div>
 			  <div class="col-lg-6">
 			  		<div class="form-group">
-      					<label  class="col-lg-4 control-label">Roll Number</label>
+      					<label  class="col-lg-4 control-label">Faculty Name</label>
      					 <div class="col-lg-8">
-     					 		<sx:autocompleter list="listOfRollNumbers" name="searchKey" showDownArrow="false"></sx:autocompleter>
-       						<!-- 	 <input type="text" class="form-control"  placeholder="Type Roll Number here" name="searchKey" required> -->
+     					 		<sx:autocompleter list="facultynamelist" name="searchKey" showDownArrow="false"></sx:autocompleter>
      					 </div>
      					<br><br> 
    					 </div>

@@ -28,6 +28,10 @@ public class AddAnnouncementAction extends ActionSupport implements ModelDriven<
 		
 	}
 	
+	public String pageRedirect()
+	{
+		return "success";
+	}
 	
 	public String getMessage() 
 	{

@@ -5,12 +5,42 @@
 <struts>
 <constant name="struts.devMode" value="true" />
    <package name="default" extends="struts-default">
-          
+   
+        <interceptors>
+            <interceptor name="authentication"
+                class="edu.iiitb.sis.actions.authentication.AuthenticationInterceptor"></interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+ 
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>
+ 
+        <global-results>
+            <result name="login" type="redirect">/home.action</result>
+        </global-results>
+         <action name="home">
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result>/jsp/index.jsp</result>
+        </action>
+        
+       
+      
       <action name="Login" class="edu.iiitb.sis.actions.authentication.LoginAction"  method ="execute">
+      <interceptor-ref name="defaultStack"></interceptor-ref>
         <result name="Admin">/jsp/adminPages/admin.jsp</result> 
         <result name="Faculty">/jsp/facultyPages/faculty.jsp</result>
         <result name="Student">/jsp/studentPages/student.jsp</result>
         <result name="failure">/jsp/index.jsp</result>
+      </action>
+       <action name="forgotPassword" class="edu.iiitb.sis.actions.authentication.ForgotPasswordAction"  method ="execute">
+        <result name="success">/jsp/index.jsp</result> 
+        <result name="failure">/jsp/forgotPassword.jsp</result>
+      </action>
+      
+      <action name="AddStudentPage" class="edu.iiitb.sis.actions.admin.student.AddStudentAction"  method ="pageRedirect">
+        <result name="success">/jsp/adminPages/studentPages/addStudent.jsp</result> 
       </action>
       <action name="AddStudent" class="edu.iiitb.sis.actions.admin.student.AddStudentAction"  method ="execute">
         <result name="success">/jsp/adminPages/studentPages/addStudent.jsp</result> 
@@ -32,34 +62,43 @@
         <result name="failure">/jsp/index.jsp</result>
       </action>
       
-      <action name="AddFaculty" class="edu.iiitb.sis.actions.admin.student.AddStudentAction"  method ="execute">
-        <result name="success">/jsp/adminPages/studentPages/addStudent.jsp</result> 
-        <result name="failure">/jsp/adminPages/studentPages/addStudent.jsp</result>
+      
+      <action name="AddFacultyPage" class="edu.iiitb.sis.actions.admin.faculty.AddFacultyAction"  method ="pageRedirect">
+        <result name="success">/jsp/adminPages/facultyPages/addFaculty.jsp</result> 
       </action>
       
-       <action name="searchFaculty" class="edu.iiitb.sis.actions.admin.student.SearchStudentAction"  method ="execute">
-        <result name="success">/jsp/adminPages/studentPages/searchStudentToUpdate.jsp</result> 
+      <action name="AddFaculty" class="edu.iiitb.sis.actions.admin.faculty.AddFacultyAction"  method ="execute">
+        <result name="success">/jsp/adminPages/facultyPages/addFaculty.jsp</result> 
+        <result name="failure">/jsp/adminPages/facultyPages/addFaculty.jsp</result>
+      </action>
+      
+       <action name="searchFaculty" class="edu.iiitb.sis.actions.admin.faculty.SearchFacultyAction"  method ="execute">
+        <result name="success">/jsp/adminPages/facultyPages/searchFacultyToUpdate.jsp</result> 
         <result name="failure">/jsp/index.jsp</result>
       </action>
       
-       <action name="updateFacultyDetails" class="edu.iiitb.sis.actions.admin.student.UpdateStudentDetailsAction"  method ="execute">
-        <result name="success">/jsp/adminPages/studentPages/searchStudentToUpdate.jsp</result> 
+       <action name="updateFacultyDetails" class="edu.iiitb.sis.actions.admin.faculty.UpdateFacultyDetailsAction"  method ="execute">
+        <result name="success">/jsp/adminPages/admin.jsp</result> 
         <result name="failure">/jsp/index.jsp</result>
       </action>
       
-      <action name="getFacultyDetails" class="edu.iiitb.sis.actions.admin.student.GetStudentDetails"  method ="execute">
-        <result name="success">/jsp/adminPages/studentPages/updateStudentDetails.jsp</result> 
+      <action name="getFacultyDetails" class="edu.iiitb.sis.actions.admin.faculty.GetFacultyDetailsAction"  method ="execute">
+        <result name="success">/jsp/adminPages/facultyPages/updateFacultyDetails.jsp</result> 
         <result name="failure">/jsp/index.jsp</result>
       </action>
-      
-       <action name="forgotPassword" class="edu.iiitb.sis.actions.authentication.ForgotPasswordAction"  method ="execute">
-        <result name="success">/jsp/index.jsp</result> 
-        <result name="failure">/jsp/forgotPassword.jsp</result>
+
+           
+      <action name="addAnnouncementPage" class="edu.iiitb.sis.actions.admin.announcement.AddAnnouncementAction"  method ="pageRedirect">
+        <result name="success">/jsp/adminPages/announcementPages/addAnnouncement.jsp</result> 
       </action>
-      
+     
       <action name="AddAnnouncement" class="edu.iiitb.sis.actions.admin.announcement.AddAnnouncementAction"  method ="execute">
         <result name="success">/jsp/adminPages/announcementPages/addAnnouncement.jsp</result> 
         <result name="failure">/jsp/adminPages/announcementPages/addAnnouncement.jsp</result>
+      </action>
+      
+      <action name="deleteAnnouncementPage" class="edu.iiitb.sis.actions.admin.announcement.DeleteAnnouncement"  method ="pageRedirect">
+        <result name="success">/jsp/adminPages/announcementPages/deleteAnnouncement.jsp</result> 
       </action>
       
        <action name="deleteAnnouncement" class="edu.iiitb.sis.actions.admin.announcement.DeleteAnnouncement"  method ="execute">

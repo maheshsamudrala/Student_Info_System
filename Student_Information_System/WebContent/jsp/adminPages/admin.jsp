@@ -51,7 +51,7 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/studentPages/addStudent.jsp"><i class="fa fa-user"></i>&nbsp; Add Student</a></li>
+     <li  class="active"><a href="AddStudentPage"><i class="fa fa-user"></i>&nbsp; Add Student</a></li>
  
 </ul>
 </div>
@@ -63,7 +63,7 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/facultyPages/addFaculty.jsp"><i  class="fa fa-user "></i>&nbsp;Add Faculty</a></li>
+     <li  class="active"><a href="AddFacultyPage"><i  class="fa fa-user "></i>&nbsp;Add Faculty</a></li>
    
 </ul>
 </div>
@@ -93,13 +93,13 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/announcementPages/addAnnouncement.jsp"><i  class="fa fa-bullhorn"></i>&nbsp;Add Announcements</a></li> 
+     <li  class="active"><a href="addAnnouncementPage"><i  class="fa fa-bullhorn"></i>&nbsp;Add Announcements</a></li> 
    
 </ul>
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/announcementPages/deleteAnnouncement.jsp"><i  class="fa fa-bullhorn"></i>&nbsp;Delete Announcements</a></li> 
+     <li  class="active"><a href="deleteAnnouncementPage"><i  class="fa fa-bullhorn"></i>&nbsp;Delete Announcements</a></li> 
    
 </ul>
 </div>

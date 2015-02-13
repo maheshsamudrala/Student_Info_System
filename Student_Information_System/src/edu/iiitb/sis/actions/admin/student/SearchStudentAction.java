@@ -9,9 +9,7 @@ import edu.iiitb.sis.dao.admin.student.StudentDao;
 
 public class SearchStudentAction extends ActionSupport 
 {
-/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private List<String> listOfRollNumbers;
 	private StudentDao studentDao;
@@ -21,6 +19,7 @@ public class SearchStudentAction extends ActionSupport
 	
 	public String execute()
 	{
+		System.out.println("Inside Search Student");
 		studentDao=new StudentDao();
 		listOfRollNumbers=new ArrayList<String>();
 		listOfRollNumbers=studentDao.getStudentRollNumbers();

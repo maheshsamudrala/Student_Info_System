@@ -2,7 +2,6 @@ package edu.iiitb.sis.actions.authentication;
 import java.util.ArrayList;
 import java.util.Map;
 
-import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
 import edu.iiitb.sis.dao.AuthenticationDao;
@@ -16,25 +15,13 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 {
 	private Login login=new Login();
 	private String message;
+	
 	private ArrayList<String> announcementList=new ArrayList<String>();
 	private AnnouncementDao announcementDao=new AnnouncementDao();
 	AuthenticationDao authenticate=new AuthenticationDao();
-	private SessionMap<String,Object> sessionMap;  
-	private Map session;
+	private Map<String,Object> sessionMap=null;  
+	private SessionBean sessionBean=new SessionBean();
 	
-	public SessionMap<String, Object> getSessionMap()
-	{
-		return sessionMap;
-	}
-	public void setSession(Map<String, Object> arg0) 
-	{
-		// TODO Auto-generated method stub
-		
-	}
-	public void setSessionMap(SessionMap<String, Object> sessionMap) 
-	{
-		this.sessionMap = sessionMap;
-	}
 
 	public String execute()
 	{
@@ -47,14 +34,28 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 		}
 		if(message.equalsIgnoreCase("Admin"))
 		{
+			sessionBean.setName("Admin");
+			sessionBean.setUserName("admin");
+			sessionBean.setAnnouncementList(announcementList);
+			sessionMap.put("Session", sessionBean);
 			return "Admin";
+			
 		}
 		else if(message.equalsIgnoreCase("Faculty"))
 		{
+			sessionBean.setName("Admin");
+			sessionBean.setUserName(login.getUserName());
+			sessionBean.setAnnouncementList(announcementList);
+			sessionMap.put("Session", sessionBean);
+
 			return "Faculty";
 		}
 		else if(message.equalsIgnoreCase("Student"))
 		{
+			sessionBean.setName("Admin");
+			sessionBean.setUserName(login.getUserName());
+			sessionBean.setAnnouncementList(announcementList);
+			sessionMap.put("Session", sessionBean);
 			return "Student";
 		}
 		else
@@ -63,6 +64,14 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 			return "failure";
 		}
 		
+	}
+	public Map<String, Object> getSessionMap()
+	{
+		return sessionMap;
+	}
+	public void setSession(Map<String, Object> sessionMap) 
+	{
+			this.sessionMap=sessionMap;
 	}
 	public String getMessage()
 	{

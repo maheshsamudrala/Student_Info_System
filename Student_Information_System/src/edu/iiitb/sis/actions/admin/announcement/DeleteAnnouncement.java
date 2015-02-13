@@ -26,6 +26,11 @@ public class DeleteAnnouncement extends ActionSupport
 		}
 	}
 	
+	public String pageRedirect()
+	{
+		return "success";
+	}
+	
 	public String getMessage() 
 	{
 		return message;

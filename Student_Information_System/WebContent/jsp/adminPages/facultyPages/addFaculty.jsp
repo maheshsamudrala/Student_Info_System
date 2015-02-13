@@ -20,68 +20,35 @@
   		<s:else>
   			<h2 align="center"><label class="control-label"><s:property value="msg"/> </label></h2>			
   		</s:else>
-	<form class="form-horizental" action="AddFaculty" method="post" enctype="multipart/form-data" >
+		<form class="form-horizental" action="AddFaculty" method="post" enctype="multipart/form-data" >
   					<div class="form-group">
-      					<label  class="col-lg-4 control-label">Student Name</label> 
+      					<label  class="col-lg-4 control-label">Faculty Name</label> 
      					 <div class="col-lg-4">
      					 		<div class="input-group">
      					 			<span class="input-group-addon" id="basic-addon1">
      					 				  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
      					 			</span>
-       							 <input type="text" class="form-control" placeholder="Type Student Name here" name="studentName" required>
+       							 <input type="text" class="form-control" placeholder="Type Faculty Name here" name="facultyName" required>
        							 </div>       							
        							  
       					</div>
      					  <br><br>
    					 </div>
-   					
-  					<div class="form-group">
-      					<label  class="col-lg-4 control-label">Roll Number</label>
+					<div class="form-group">
+      					<label  class="col-lg-4 control-label">Faculty UserName</label> 
      					 <div class="col-lg-4">
-       							 <input type="text" class="form-control"  placeholder="Type Roll Number here" name="studentRollNo" required>
-     					 </div>
-     					<br><br> 
-   					 </div>
-   					 <div class="form-group">
-      					<label  class="col-lg-4 control-label">Date Of Birth</label>
-     					 <div class="col-lg-4">
-       							<input type="date" class="form-control"  placeholder="dd/mm/yyyy" name="dateOfBirth" > 
-       							 
-     					 </div>
-     					<br><br> 
-   					 </div>
-   					 <div class="form-group">
-      					<label  class="col-lg-4 control-label">Email</label>
-     					 <div class="col-lg-4">
-       							 <input type="text" class="form-control"  placeholder="Type Email Id Here" name="email" required>
-     					 </div>
-     					<br><br> 
-   					 </div>
-   					 <div class="form-group">
-      					<label  class="col-lg-4 control-label">Phone Number</label>
-     					 <div class="col-lg-4">
-       							 <input type="text" class="form-control"  placeholder="Type Phone Number here" name="phoneNumber" required>
-     					 </div>
-     					<br><br> 
-   					 </div>
-   					 <div class="form-group">
-      					<label  class="col-lg-4 control-label">Address</label>
-     					 <div class="col-lg-4">
-       							 <textarea class="form-control"  placeholder="Type Address here" name="address" required></textarea>
-     					 </div>
-     					<br><br><br><br> 
-   					 </div>
-   					<div class="form-group">
-   					
-      					<label  class="col-lg-4 control-label">Picture</label>
-     					 <div class="col-lg-4">
-     					 	
-       							 <s:file class="form-control"   name="image"></s:file>
-     					 </div>
-     					 <br><br> 
+     					 		<div class="input-group">
+     					 			<span class="input-group-addon" id="basic-addon1">
+     					 				  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+     					 			</span>
+       							 <input type="text" class="form-control" placeholder="Type Faculty UserName here" name="facultyUserName" required>
+       							 </div>       							
+       							  
+      					</div>
+     					  <br><br>
    					 </div>
    					 
-   					 
+   					
    					 <div class="form-group">
       						<div class="col-lg-10 col-lg-offset-2"><input type="submit" value="Submit"  class="btn btn-primary" />
        						 <input type="reset" class="btn btn-default" name="Reset"/>
