@@ -10,7 +10,7 @@
 
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i  class="fa fa-gears"></i>&nbsp;Profile Settings</a></li>
+     <li  class="active"><a href="interest"><i  class="fa fa-gears"></i>&nbsp;Profile Settings</a></li>
    
 </ul>
 </div>

@@ -220,7 +220,10 @@
        <action name="FacultyEdit" class="edu.iiitb.sis.actions.faculty.FacultyEditAction" method="execute">
        <result name="success">/jsp/facultyPages/editProfilePages/FacultyEditProfile.jsp</result>
        </action>
-    
+    	
+       <action name="FacultyEditProfilePage" class="edu.iiitb.sis.actions.faculty.FacultyEditProfilePage" method="execute">
+       <result name="success">/jsp/facultyPages/editProfilePages/FacultyEditProfile.jsp</result>
+       </action>	
     	  
   </package>
 </struts>

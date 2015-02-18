@@ -29,17 +29,12 @@ public class StudentEditDao {
 			System.out.println(edit.getPassword());
 			
 			PreparedStatement interestStmt = null;
-			/*interestQuery="INSERT into student_interest (student_rollno,interest_name) VALUES (?,?)"; 
-			interestStmt=con.prepareStatement(interestQuery);
-			interestStmt.setString(1,"1");
-			interestStmt.setString(2,edit.getA());
-			interestStmt.executeUpdate();
-			System.out.println(edit.getA());*/
+			if(!edit.getA().isEmpty())
 			for(String str:edit.getA())
 			{
 				interestQuery="INSERT into student_interest (student_rollno,interest_name) VALUES (?,?)"; 
 				interestStmt=con.prepareStatement(interestQuery);
-				interestStmt.setString(1,"1");
+				interestStmt.setString(1,edit.getStudentRollNo());
 				interestStmt.setString(2,str);
 				interestStmt.executeUpdate();
 				

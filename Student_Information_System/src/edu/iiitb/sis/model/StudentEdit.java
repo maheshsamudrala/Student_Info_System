@@ -2,12 +2,23 @@ package edu.iiitb.sis.model;
 
 import java.util.List;
 
-public class StudentEdit {
+public class StudentEdit 
+{
+	private String studentRollNo;
+	
 	private String phone;
 	private String password;
 	private String address;
 	private List<String> a;
 	
+	public String getStudentRollNo()
+	{
+		return studentRollNo;
+	}
+	public void setStudentRollNo(String studentRollNo) 
+	{
+		this.studentRollNo = studentRollNo;
+	}
 	public String getPhone() {
 		return phone;
 	}

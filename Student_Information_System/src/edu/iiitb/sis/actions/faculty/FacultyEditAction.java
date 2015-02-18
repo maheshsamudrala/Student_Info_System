@@ -38,6 +38,8 @@ public class FacultyEditAction extends ActionSupport implements SessionAware,Mod
 		System.out.println(faculty.getQualification());
 		faculty.setFacultyId(sessionBean.getUserName());
 		System.out.println(faculty.getFacultyId());
+		faculty.setFacultyId(loginName);
+		faculty.setFacultyUserName(loginName);
 		result = editfaculty.EditDetails(faculty);
 		if(faculty.getPhone()!=null)
 		{	
@@ -65,7 +67,7 @@ public class FacultyEditAction extends ActionSupport implements SessionAware,Mod
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
 	}	
 
 	public FacultyEdit getFaculty() {
