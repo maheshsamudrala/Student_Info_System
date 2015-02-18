@@ -46,6 +46,8 @@
    		</form>
    		<br><br><br>
    			</div>
-   			</div>		 
+   			</div>	
+   		<%@include file="/jsp/adminPages/newsAnnouncement.jsp" %>
+   				 
 </body>
 </html>

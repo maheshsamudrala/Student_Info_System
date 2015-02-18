@@ -20,7 +20,7 @@
   		<s:else>
   			<h2 align="center"><label class="control-label"><s:property value="msg"/> </label></h2>			
   		</s:else>
-		<form class="form-horizental" action="AddFaculty" method="post" enctype="multipart/form-data" >
+	<form class="form-horizental" action="AddFaculty" method="post" enctype="multipart/form-data" >
   					<div class="form-group">
       					<label  class="col-lg-4 control-label">Faculty Name</label> 
      					 <div class="col-lg-4">
@@ -34,7 +34,7 @@
       					</div>
      					  <br><br>
    					 </div>
-					<div class="form-group">
+<div class="form-group">
       					<label  class="col-lg-4 control-label">Faculty UserName</label> 
      					 <div class="col-lg-4">
      					 		<div class="input-group">
@@ -49,6 +49,28 @@
    					 </div>
    					 
    					
+   					 <div class="form-group">
+      					<label  class="col-lg-4 control-label">Email</label>
+     					 <div class="col-lg-4">
+       							 <input type="text" class="form-control"  placeholder="Type Faculty Email Id Here" name="email" required>
+     					 </div>
+     					<br><br> 
+   					 </div>
+   					 <div class="form-group">
+      					<label  class="col-lg-4 control-label">Phone Number</label>
+     					 <div class="col-lg-4">
+       							 <input type="text" class="form-control"  placeholder="Type Phone Number here" name="phoneNumber" required>
+     					 </div>
+     					<br><br> 
+   					 </div> 
+   					 <div class="form-group">
+      					<label  class="col-lg-4 control-label">Qualifications</label>
+     					 <div class="col-lg-4">
+       							 <textarea class="form-control"  placeholder="Type Qualifications of the faculty here" name="qualifications" required></textarea>
+     					 </div>
+     					<br><br><br><br> 
+   					 </div>
+   					 
    					 <div class="form-group">
       						<div class="col-lg-10 col-lg-offset-2"><input type="submit" value="Submit"  class="btn btn-primary" />
        						 <input type="reset" class="btn btn-default" name="Reset"/>

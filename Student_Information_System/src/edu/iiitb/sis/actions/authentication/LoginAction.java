@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import edu.iiitb.sis.dao.AuthenticationDao;
 import edu.iiitb.sis.dao.admin.announcement.AnnouncementDao;
+import edu.iiitb.sis.dao.admin.news.NewsDao;
 
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -17,7 +18,11 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 	private String message;
 	
 	private ArrayList<String> announcementList=new ArrayList<String>();
+	private ArrayList<String> newsList=new ArrayList<String>();
+
 	private AnnouncementDao announcementDao=new AnnouncementDao();
+	private NewsDao newsDao=new NewsDao();
+	
 	AuthenticationDao authenticate=new AuthenticationDao();
 	private Map<String,Object> sessionMap=null;  
 	private SessionBean sessionBean=new SessionBean();
@@ -26,8 +31,9 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 	public String execute()
 	{
 		message=authenticate.checkLogin(login);
-		//System.out.println(message);
 		announcementList=announcementDao.getAnnouncements();
+		newsList=newsDao.getNews();
+		
 		for(String str:announcementList)
 		{
 			System.out.println(str);
@@ -37,6 +43,7 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 			sessionBean.setName("Admin");
 			sessionBean.setUserName("admin");
 			sessionBean.setAnnouncementList(announcementList);
+			sessionBean.setNewsList(newsList);
 			sessionMap.put("Session", sessionBean);
 			return "Admin";
 			
@@ -46,6 +53,8 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 			sessionBean.setName("Admin");
 			sessionBean.setUserName(login.getUserName());
 			sessionBean.setAnnouncementList(announcementList);
+			sessionBean.setNewsList(newsList);
+
 			sessionMap.put("Session", sessionBean);
 
 			return "Faculty";
@@ -55,6 +64,8 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 			sessionBean.setName("Admin");
 			sessionBean.setUserName(login.getUserName());
 			sessionBean.setAnnouncementList(announcementList);
+			sessionBean.setNewsList(newsList);
+
 			sessionMap.put("Session", sessionBean);
 			return "Student";
 		}

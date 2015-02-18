@@ -1,12 +1,18 @@
 package edu.iiitb.sis.actions.admin.student;
 
+import java.util.ArrayList;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+import edu.iiitb.sis.actions.authentication.SessionBean;
 import edu.iiitb.sis.dao.admin.student.StudentDao;
 import edu.iiitb.sis.model.Student;
 
-public class GetStudentDetails extends ActionSupport implements ModelDriven<Student>
+public class GetStudentDetails extends ActionSupport implements ModelDriven<Student>,SessionAware
 {
 	
 	private static final long serialVersionUID = 1L;
@@ -14,25 +20,12 @@ public class GetStudentDetails extends ActionSupport implements ModelDriven<Stud
 	private StudentDao studentDao;
 	private String name;
 	private String number;
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) 
-	{
-		this.name = name;
-	}
-
-	public String getNumber() {
-		return number;
-	}
-
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
+	
+	private Map<String,Object> sessionMap=null;
+	private ArrayList<String> announcementList=new ArrayList<String>();
+	private ArrayList<String> newsList=new ArrayList<String>();
+	private String loginName;
+	private SessionBean sessionBean;
 	private String searchKey;
 	private Student student=new Student();
 	private String message;
@@ -54,7 +47,19 @@ public class GetStudentDetails extends ActionSupport implements ModelDriven<Stud
 
 		}
 	}
-	
+	public void setSession(Map<String, Object> map)
+	{
+		this.sessionMap=map;
+		this.sessionBean=(SessionBean) sessionMap.get("Session");
+		setSessionValues();
+	}
+	private void setSessionValues()
+	{
+		this.announcementList=sessionBean.getAnnouncementList();
+		this.newsList=sessionBean.getNewsList();
+		this.loginName=sessionBean.getName();
+	}
+
 	
 	public String getSearchKey()
 	{
@@ -84,7 +89,51 @@ public class GetStudentDetails extends ActionSupport implements ModelDriven<Stud
 	{
 		return student;
 	}
+	public Map<String, Object> getSessionMap()
+	{
+		return sessionMap;
+	}
+	public ArrayList<String> getAnnouncementList() 
+	{
+		return announcementList;
+	}
 
+	public void setAnnouncementList(ArrayList<String> announcementList) {
+		this.announcementList = announcementList;
+	}
+
+
+	public String getName()
+	{
+		return name;
+	}
+
+
+	public void setName(String name) 
+	{
+		this.name = name;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	public ArrayList<String> getNewsList() {
+		return newsList;
+	}
+	public void setNewsList(ArrayList<String> newsList) {
+		this.newsList = newsList;
+	}
+	public String getLoginName() {
+		return loginName;
+	}
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
 	
 }
 

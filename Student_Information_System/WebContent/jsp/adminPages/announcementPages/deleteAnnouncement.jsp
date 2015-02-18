@@ -44,5 +44,7 @@
    		
    			</div>
    			</div>
+   	<%@include file="/jsp/adminPages/newsAnnouncement.jsp" %>
+   			
 </body>
 </html>

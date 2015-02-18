@@ -2,7 +2,7 @@
 
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/admin.jsp"><i class="fa fa-home "></i>&nbsp;Home</a></li>
+     <li  class="active"><a href="AdminHomePageAction"><i class="fa fa-home "></i>&nbsp;Home</a></li>
    
 </ul>
 </div>
@@ -32,7 +32,7 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i class="fa fa-book fa-fw"></i>&nbsp;Update Coarse</a></li>
+     <li  class="active"><a href="addCoursePage"><i class="fa fa-book fa-fw"></i>&nbsp;Add Course</a></li>
    
 </ul>
 </div>
@@ -44,25 +44,31 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i  class="fa fa-gear"></i>&nbsp;Subject Settings</a></li> 
+     <li  class="active"><a href="list"><i  class="fa fa-gear"></i>&nbsp;Subject Settings</a></li> 
    
 </ul>
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/announcementPages/addAnnouncement.jsp"><i  class="fa fa-bullhorn"></i>&nbsp;Add Announcements</a></li> 
+     <li  class="active"><a href="addAnnouncementPage"><i  class="fa fa-bullhorn"></i>&nbsp;Add Announcements</a></li> 
    
 </ul>
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="<%=request.getContextPath()%>/jsp/adminPages/announcementPages/deleteAnnouncement.jsp"><i  class="fa fa-bullhorn"></i>&nbsp;Delete Announcements</a></li> 
+     <li  class="active"><a href="deleteAnnouncementPage"><i  class="fa fa-bullhorn"></i>&nbsp;Delete Announcements</a></li> 
    
 </ul>
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i  class="fa fa-newspaper-o"></i>&nbsp;News</a></li> 
+     <li  class="active"><a href="addNewsPage"><i  class="fa fa-newspaper-o"></i>&nbsp;Add News</a></li> 
+   
+</ul>
+</div>
+<div class="frame1">
+<ul class="nav nav-pills nav-stacked">
+     <li  class="active"><a href="deleteNewsPage"><i  class="fa fa-newspaper-o"></i>&nbsp;Delete News</a></li> 
    
 </ul>
 </div>

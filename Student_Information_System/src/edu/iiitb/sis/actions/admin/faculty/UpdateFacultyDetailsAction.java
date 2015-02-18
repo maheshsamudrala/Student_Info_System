@@ -1,8 +1,12 @@
 package edu.iiitb.sis.actions.admin.faculty;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+import edu.iiitb.sis.actions.authentication.SessionBean;
 import edu.iiitb.sis.dao.admin.faculty.UpdateFacultyDao;
 import edu.iiitb.sis.model.Faculty;
 
@@ -12,22 +16,67 @@ public class UpdateFacultyDetailsAction extends ActionSupport implements ModelDr
 	Faculty facultyModelObj=new Faculty();
 	private String message;
 	UpdateFacultyDao updataFacultyDaoObj=new UpdateFacultyDao();
+	
+	private ArrayList<String> announcementList=new ArrayList<String>();
+	private ArrayList<String> newsList=new ArrayList<String>();
+	private String loginName;
+	private Map<String,Object> sessionMap=null;
+	private SessionBean sessionBean;
+	
 	public String execute()
 	{
 		message=updataFacultyDaoObj.updateFaculty(facultyModelObj);
 		return message;	
 	}
+	public ArrayList<String> getAnnouncementList()
+	{
+		return announcementList;
+	}
+	public void setAnnouncementList(ArrayList<String> announcementList) 
+	{
+		this.announcementList = announcementList;
+	}
+	public ArrayList<String> getNewsList() 
+	{
+		return newsList;
+	}
+	public void setNewsList(ArrayList<String> newsList)
+	{
+		this.newsList = newsList;
+	}
+	public String getLoginName()
+	{
+		return loginName;
+	}
+	public void setLoginName(String loginName) 
+	{
+		this.loginName = loginName;
+	}
 	public Faculty getModel()
 	{
 		return facultyModelObj;
 	}
-	public String getMessage() {
+	public String getMessage() 
+	{
 		return message;
 	}
-	public void setMessage(String message) {
+	public void setMessage(String message) 
+	{
 		this.message = message;
 	}
-	
+	public void setSession(Map<String, Object> map)
+	{
+		this.sessionMap=map;
+		this.sessionBean=(SessionBean) sessionMap.get("Session");
+
+		setSessionValues();
+	}
+	private void setSessionValues()
+	{
+		this.announcementList=sessionBean.getAnnouncementList();
+		this.newsList=sessionBean.getNewsList();
+		this.loginName=sessionBean.getName();
+	}
 	
 	
 	

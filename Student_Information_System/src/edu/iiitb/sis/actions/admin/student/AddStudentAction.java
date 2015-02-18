@@ -27,20 +27,20 @@ public class AddStudentAction extends ActionSupport implements SessionAware,Serv
 	private String message;
 	private UserDetails user=new UserDetails();
 	private SendEmail sendEmail=new SendEmail();
+	
 	private Map<String,Object> sessionMap=null;
 	private ArrayList<String> announcementList=new ArrayList<String>();
-	
+	private ArrayList<String> newsList=new ArrayList<String>();
+	private String loginName;
+	private SessionBean sessionBean;
 	public String execute()
 	{
 		studentDao=new StudentDao();
-		System.out.println(studentObj.getDateOfBirth());
 		String destpath = servletRequest.getSession().getServletContext().getRealPath("/");
 		studentObj.setImagePath(destpath);
-		SessionBean sessionBean=(SessionBean) sessionMap.get("Session");
-		System.out.println(sessionBean);
 		message=studentDao.addStudent(studentObj);
+		setSessionValues();
 		
-		announcementList=sessionBean.getAnnouncementList();
 		if(message.equalsIgnoreCase("success"))
 		{
 			user.setName(studentObj.getStudentName());
@@ -56,22 +56,41 @@ public class AddStudentAction extends ActionSupport implements SessionAware,Serv
 		}
 		
 	}
-	public ArrayList<String> getAnnouncementList() {
-		return announcementList;
-	}
-	public void setAnnouncementList(ArrayList<String> announcementList) {
-		this.announcementList = announcementList;
-	}
+	
 	public String pageRedirect()
 	{
+		System.out.println(sessionBean.getUserName());
+		System.out.println(sessionBean.getName());
+		setSessionValues();
 		return "success";
 	}
+	
+	
+	public ArrayList<String> getAnnouncementList()
+	{
+		return announcementList;
+	}
+	public void setAnnouncementList(ArrayList<String> announcementList)
+	{
+		this.announcementList = announcementList;
+	}
+	public ArrayList<String> getNewsList() 
+	{
+		return newsList;
+	}
+	public void setNewsList(ArrayList<String> newsList)
+	{
+		this.newsList = newsList;
+	}
+	
 		
-	public String getMessage() {
+	public String getMessage() 
+	{
 		return message;
 	}
 
-	public void setMessage(String message) {
+	public void setMessage(String message)
+	{
 		this.message = message;
 	}
 
@@ -80,6 +99,14 @@ public class AddStudentAction extends ActionSupport implements SessionAware,Serv
 			return studentObj;
 	}
 	
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+
 	public Student getStudentObj()
 	{
 		return studentObj;
@@ -97,15 +124,18 @@ public class AddStudentAction extends ActionSupport implements SessionAware,Serv
 	public void setServletRequest(HttpServletRequest servletRequest) {
 		this.servletRequest = servletRequest;
 	}
-	public void setSession(SessionBean sessionBean) 
-	{
-		// TODO Auto-generated method stub
-		
-	}
+	
 	public void setSession(Map<String, Object> map)
 	{
 		this.sessionMap=map;
+		this.sessionBean=(SessionBean) sessionMap.get("Session");
+		setSessionValues();
 	}
-	
+	private void setSessionValues()
+	{
+		this.announcementList=sessionBean.getAnnouncementList();
+		this.newsList=sessionBean.getNewsList();
+		this.loginName=sessionBean.getName();
+	}
 
 }

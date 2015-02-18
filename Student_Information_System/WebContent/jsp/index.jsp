@@ -17,8 +17,16 @@
         <script src="<%=request.getContextPath()%>/sis-bootstrap/js/bootstrap.min.js"></script>
         <link rel="icon" type="image/ico" href="icon.ico"/>
         <title>Welcome to  Student Information System</title>
+        
+       <script type="text/javascript" language="javascript">
+			function DisableBackButton()
+			{
+				window.history.forward(1); 
+			}
+			
+		</script> 
 </head>
-<body>
+<body onload="DisableBackButton();">
 <br><br>
 <div class="col-lg-2">
 </div>

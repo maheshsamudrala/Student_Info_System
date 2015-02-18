@@ -27,7 +27,7 @@ public class AuthenticationInterceptor implements Interceptor
 		SessionBean sessionBean=(SessionBean) sessionMap.get("Session");
 		if(sessionBean==null)
 		{
-			 return Action.LOGIN;
+			 return "login";
 		}
 		else
 		{
