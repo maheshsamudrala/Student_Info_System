@@ -9,7 +9,7 @@
          </div>    
          </div>
        <div class="col-lg-4">
-     <p style="text-align:right"> <a href="#">Logout</a></p>
+     <p style="text-align:right"> <a href="Logout">Logout</a></p>
        
    
   </div>
