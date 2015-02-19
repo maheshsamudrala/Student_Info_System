@@ -9,5 +9,8 @@
       <script src="<%=request.getContextPath()%>/sis-bootstrap/js/bootstrap.js"></script>
         <script src="<%=request.getContextPath()%>/sis-bootstrap/js/bootstrap.min.js"></script>
         <link rel="icon" type="image/ico" href="icon.ico"/>
-        
+          <link href="<%=request.getContextPath()%>/sis-bootstrap/font-awesome/css/bootstrap-multiselect.css"
+        rel="stylesheet" type="text/css" />
+    <script src="<%=request.getContextPath()%>/sis-bootstrap/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
         <title> Welcome to Student Information System</title>

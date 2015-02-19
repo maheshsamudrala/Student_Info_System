@@ -38,6 +38,12 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
+     <li  class="active"><a href="list"><i class="fa fa-book fa-fw"></i>&nbsp;Assign Course</a></li>
+   
+</ul>
+</div>
+<div class="frame1">
+<ul class="nav nav-pills nav-stacked">
      <li  class="active"><a href="#"><i  class="fa fa-gear"></i>&nbsp;Interest Settings</a></li> 
    
 </ul>
