@@ -1,7 +1,6 @@
 package edu.iiitb.sis.model;
 
-import antlr.collections.List;
-import java.util.*;
+import java.util.ArrayList;
 
 
 public class Enroll {

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.PreparedStatement;
 
 import edu.iiitb.sis.dbUtil.ConnectionPool;
 import edu.iiitb.sis.model.Result_Model;
@@ -19,8 +18,8 @@ public class ResultDAO {
 	{
 		ResultSet rs;
 
-		int i;
-		try {
+		try 
+		{
 			Connection con = ConnectionPool.getConnection();
 			Statement statement;
 			statement = con.createStatement();
@@ -51,15 +50,12 @@ public class ResultDAO {
 		
 			rs.close();
 			statement.close();
-			con.close();}
+			con.close();
+		}
 		 catch (SQLException e)
 		 {
 			e.printStackTrace();
 		 }
-		
-	
-		
-	
 		return true;
 	}
 }	

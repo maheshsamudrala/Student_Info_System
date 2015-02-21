@@ -1,6 +1,5 @@
 package edu.iiitb.sis.model;
 
-import java.util.ArrayList;
 
 public class Faculty_Search_Model {
 

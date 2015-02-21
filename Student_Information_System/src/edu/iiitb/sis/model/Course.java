@@ -2,7 +2,6 @@ package edu.iiitb.sis.model;
 
 import java.util.ArrayList;
 
-import javax.swing.JComboBox;
 
 public class Course {
 		private String message;

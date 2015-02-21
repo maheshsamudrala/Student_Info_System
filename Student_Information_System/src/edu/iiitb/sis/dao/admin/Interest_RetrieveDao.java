@@ -9,7 +9,6 @@ import edu.iiitb.sis.model.Interest_Retrieve;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Interest_RetrieveDao {
 	private String interestQuery;
