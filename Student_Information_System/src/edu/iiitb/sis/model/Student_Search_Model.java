@@ -1,6 +1,5 @@
 package edu.iiitb.sis.model;
 
-import java.util.ArrayList;
 
 public class Student_Search_Model {
 
@@ -36,7 +35,6 @@ public class Student_Search_Model {
 	}
 
 	public void setStudent_image(String student_image) {
-//		System.out.println(student_image);
 		this.student_image = student_image;
 	}
 

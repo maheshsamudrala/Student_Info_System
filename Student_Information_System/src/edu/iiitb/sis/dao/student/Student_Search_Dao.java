@@ -23,7 +23,7 @@ public class Student_Search_Dao {
 		{
 			Connection con=ConnectionPool.getConnection();
 			Statement statement = con.createStatement();
-			
+			System.out.println(obj.getStudent_rollno());
 		ResultSet rs;
 		rs = statement.executeQuery("select * from student where student_rollno='"+obj.getStudent_rollno()+"'");
 		if(rs.next())
@@ -39,13 +39,17 @@ public class Student_Search_Dao {
 			
 			Date ra = rs.getDate("student_dob");
 			
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			String date = sdf.format(ra);
 			obj.setStudent_dob(date);
 			rs.close();
 			statement.close();
 			con.close();
 
+		}
+		else
+		{
+			System.out.println("No Data Found");
 		}
 		
 	}
@@ -61,7 +65,7 @@ public class Student_Search_Dao {
 
 			ResultSet rs1;
 		
-		rs1 = statement.executeQuery("SELECT interest_name FROM student_interest WHERE student_rollno='"+obj.getStudent_rollno()+"'");
+		rs1 = statement.executeQuery("SELECT distinct(interest_name) FROM student_interest WHERE student_rollno='"+obj.getStudent_rollno()+"'");
 		
 			ArrayList<String> interest_list = new ArrayList<String>();
 			while(rs1.next())
@@ -75,7 +79,7 @@ public class Student_Search_Dao {
 			for (String s : interest_list)
 			{
 			    sb.append(s);
-			    sb.append("   ");
+			    sb.append(", ");
 			}			
 			
 			obj.setStudent_interest(sb);
@@ -87,6 +91,7 @@ public class Student_Search_Dao {
 		} 
 		catch (SQLException e) 
 		{
+			System.out.println("No Interest Data Found");
 			e.printStackTrace();
 		}
 
@@ -111,7 +116,7 @@ public class Student_Search_Dao {
 			for (String s : course_list)
 			{
 			    sb.append(s);
-			    sb.append("   ");
+			    sb.append(", ");
 			}			
 			
 			obj.setStudent_course(sb);
@@ -123,6 +128,7 @@ public class Student_Search_Dao {
 	}
 	catch (SQLException e) 
 	{
+		System.out.println("No Course Data Found");
 		e.printStackTrace();
 	}
 

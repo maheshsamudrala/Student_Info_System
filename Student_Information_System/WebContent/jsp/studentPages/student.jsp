@@ -17,8 +17,18 @@
 <div class="col-lg-7">
 
 <div class="mainframe">
+<br><center>Welcome Student</center><br>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<form action="student_search" method="post" class="navbar-form navbar-right" role="search">
+        <div class="form-group" >
+          <input name="student_rollno" class="form-control" placeholder="Search Friend Here" type="text" required />
+        </div>
+		<button type="submit" name="submit" class="btn btn-info">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+</form>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 
 </div>

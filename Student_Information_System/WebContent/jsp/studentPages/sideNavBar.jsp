@@ -14,19 +14,25 @@
    
 </ul>
 </div>
+
+<div class="frame1">
+<ul class="nav nav-pills nav-stacked">
+     <li  class="active"><a href="viewSyllabusPage"><i  class="fa fa-book"></i>&nbsp;View Syllabus</a></li> 
+   
+</ul>
+</div>
+<div class="frame1">
+<ul class="nav nav-pills nav-stacked">
+     <li  class="active"><a href="Enrollment"><i  class="fa fa-book"></i>&nbsp;Enroll Subjects</a></li> 
+   
+</ul>
+</div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
      <li  class="active"><a href="#"><i class="fa fa-check-circle-o fa-fw"></i>&nbsp;View Results</a></li>
    
 </ul>
 </div>
-<div class="frame1">
-<ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i  class="fa fa-book"></i>&nbsp;View Syllabus</a></li> 
-   
-</ul>
-</div>
-
 </div>
 
 

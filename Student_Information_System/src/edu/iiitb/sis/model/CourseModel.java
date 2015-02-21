@@ -30,5 +30,11 @@ public class CourseModel
 	{
 		this.courseSyllabus = courseSyllabus;
 	}
+	public String getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
 	
 }

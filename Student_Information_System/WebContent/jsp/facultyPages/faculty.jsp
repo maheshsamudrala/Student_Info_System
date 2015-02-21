@@ -16,7 +16,15 @@
 			<div class="col-lg-7">
 
 				<div class="mainframe">
-
+					<form action="faculty_search" method="post" class="navbar-form navbar-right" role="search">
+       					 <div class="form-group">
+         					 <input name="faculty_id" class="form-control" placeholder="search here" type="text" required />
+       					 </div>
+						<button type="submit" name="submit" class="btn btn-info">
+        				  <span class="glyphicon glyphicon-search"></span> Search
+       					 </button>
+					</form>
+					
 				<br>
 				<s:set name="msg" value="Info"/>
   				<s:if test="%{#msg=='markssuccess'}">

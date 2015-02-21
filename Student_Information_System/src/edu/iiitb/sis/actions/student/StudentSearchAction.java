@@ -42,9 +42,10 @@ public class StudentSearchAction extends ActionSupport implements SessionAware,M
 		
 		public String execute()
 		{
-			obj.setStudent_rollno(loginName);
+			System.out.println(obj.getStudent_rollno());
 			if(service.search(obj))
 			{
+				System.out.println(obj.getStudent_name());
 				return "success";
 			}	
 			else

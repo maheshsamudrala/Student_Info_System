@@ -225,6 +225,30 @@
        <result name="success">/jsp/facultyPages/editProfilePages/FacultyEditProfile.jsp</result>
        </action>	
       
-    	  
+      <!-- View Syllabus Actions -->
+    	  <action name="viewSyllabusPage" class="edu.iiitb.sis.actions.student.ViewSyllabusPage" method="execute">
+       			<result name="success">/jsp/studentPages/viewSyllabus/viewSyllabus.jsp</result>
+       </action>
+    	<action name="getSyllabus" class="edu.iiitb.sis.actions.student.ViewSyllabus" method="execute">
+       			<result name="success">/jsp/studentPages/viewSyllabus/viewSyllabus.jsp</result>
+       </action>  
+       <!-- View Results -->
+       <action name="Result" class="edu.iiitb.sis.actions.student.Result" method="execute">
+      	<result name="success">/jsp/studentPages/viewResult/ShowResult.jsp</result>
+      </action>
+       
+       <!-- Student Enrollment -->
+       
+      <action name="Enrollment" class="edu.iiitb.sis.actions.student.enrollment.Student_Subjects_Enrollment"  method ="execute">
+        <result name="success">/jsp/studentPages/enrollment/Student_Subject_Enrollment.jsp</result>
+      </action>
+      
+      <action name="enrollsubjects" class="edu.iiitb.sis.actions.student.enrollment.Student_Subjects_enrolled"  method ="execute">
+        <result name="success">/jsp/studentPages/enrollment/Student_Subject_Enrollment.jsp</result>
+        <result name="failure">/jsp/studentPages/enrollment/Student_Subject_Enrollment.jsp</result>
+      </action>
+     
+       
+       
   </package>
 </struts>

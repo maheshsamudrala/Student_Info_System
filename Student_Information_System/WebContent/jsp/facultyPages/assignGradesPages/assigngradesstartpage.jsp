@@ -18,24 +18,23 @@
 
 <div class="mainframe">
 
-
+<div class="container">
 <center><h3>Assign Grades Module</h3></center>
 
 <div class="col-lg-7">
 		<form class="form-horizental" action="AssignGradesStudentDetails" method="post">
 			<div class="form-group">
-			  <div class="col-lg-2"></div>
-			  <div class="col-lg-6">
+			  <div class="col-lg-10">
 			  		<div class="form-group">
       					<label  class="col-lg-4 control-label">Course Name</label>
-     					 <div class="col-lg-8">
+     					 <div class="col-lg-4">
      					 		<sx:autocompleter list="courselist" name="searchKey" showDownArrow="false"></sx:autocompleter>
        						<!-- 	 <input type="text" class="form-control"  placeholder="Type Roll Number here" name="searchKey" required> -->
      					 </div>
      					<br><br> 
    					 </div>
 			  </div>
-			  <div class="col-lg-1">
+			  <div class="col-lg-2">
 			  	<div class="form-group">
       				<div class="col-lg-10 col-lg-offset-2"><input type="submit" value="Submit"  class="btn btn-primary" />
       			</div>	
@@ -43,8 +42,8 @@
 			</div>
 		</div>
 		</form>
-	</div>
-
+		</div>
+</div><br><br><br><br><br><br><br><br>
 </div>
 
 </div>
