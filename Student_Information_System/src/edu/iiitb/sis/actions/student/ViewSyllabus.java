@@ -47,12 +47,21 @@ public class ViewSyllabus extends ActionSupport implements SessionAware,ModelDri
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	public CourseModel getModel() 
 	{
 		return course;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 	
 	public ArrayList<String> getCourseList() {
 		return courseList;

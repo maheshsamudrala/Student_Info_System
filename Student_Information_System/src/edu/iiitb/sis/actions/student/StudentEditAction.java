@@ -47,6 +47,7 @@ public class StudentEditAction extends ActionSupport implements ModelDriven<Stud
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}	
 	public ArrayList<String> getAnnouncementList() {
 		return announcementList;
@@ -66,6 +67,15 @@ public class StudentEditAction extends ActionSupport implements ModelDriven<Stud
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
+
 	public String getMessage() {
 		return message;
 	}

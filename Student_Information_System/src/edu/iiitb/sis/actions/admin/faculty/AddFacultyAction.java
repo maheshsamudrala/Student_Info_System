@@ -49,7 +49,8 @@ public class AddFacultyAction extends ActionSupport implements ModelDriven<Facul
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	
 	public Faculty getFacultyModelObj() {
@@ -61,6 +62,14 @@ public class AddFacultyAction extends ActionSupport implements ModelDriven<Facul
 		this.facultyModelObj = facultyModelObj;
 	}
 
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public Faculty getModel() 
 	{

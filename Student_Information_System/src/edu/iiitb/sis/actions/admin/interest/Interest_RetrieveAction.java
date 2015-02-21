@@ -46,12 +46,21 @@ public class Interest_RetrieveAction extends ActionSupport implements ModelDrive
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}	
 	public Interest_Retrieve getInterest()
 	{
 		return interest;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public void setInterest(Interest_Retrieve interest)
 	{

@@ -39,7 +39,8 @@ public class AddFacultyPage extends ActionSupport implements SessionAware,ModelD
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	public SessionBean getModel() {
 		
@@ -58,6 +59,14 @@ public class AddFacultyPage extends ActionSupport implements SessionAware,ModelD
 	public ArrayList<String> getAnnouncementList() {
 		return announcementList;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public void setAnnouncementList(ArrayList<String> announcementList) {
 		this.announcementList = announcementList;

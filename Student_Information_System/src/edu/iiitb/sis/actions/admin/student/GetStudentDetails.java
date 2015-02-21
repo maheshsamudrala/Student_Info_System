@@ -57,9 +57,18 @@ public class GetStudentDetails extends ActionSupport implements ModelDriven<Stud
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 	
 	public String getSearchKey()
 	{

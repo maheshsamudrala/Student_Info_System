@@ -134,5 +134,50 @@ public class AuthenticationDao
 			return e.getLocalizedMessage();
 		}
 	}
-	
+	public String getFacultyName(String loginId)
+	{
+		try
+		{
+			String name=null;
+			Connection con=ConnectionPool.getConnection();
+			Statement pwdStmt=con.createStatement();
+			String query="select faculty_name from faculty where faculty_id='"+loginId+"'";
+			ResultSet rs=null;
+			rs=pwdStmt.executeQuery(query);
+			if(rs.next())
+			{
+				name=rs.getString("faculty_name");
+			}
+			return name;
+		}
+		
+		catch(Exception e)
+		{
+			System.out.println(e.getLocalizedMessage());
+			return e.getLocalizedMessage();
+		}
+	}
+	public String getStudentName(String loginId)
+	{
+		try
+		{
+			String name=null;
+			Connection con=ConnectionPool.getConnection();
+			Statement pwdStmt=con.createStatement();
+			String query="select student_name from student where student_rollno='"+loginId+"'";
+			ResultSet rs=null;
+			rs=pwdStmt.executeQuery(query);
+			if(rs.next())
+			{
+				name=rs.getString("student_name");
+			}
+			return name;
+		}
+		
+		catch(Exception e)
+		{
+			System.out.println(e.getLocalizedMessage());
+			return e.getLocalizedMessage();
+		}
+	}
 }

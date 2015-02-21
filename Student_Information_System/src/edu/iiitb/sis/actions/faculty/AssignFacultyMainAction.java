@@ -72,7 +72,17 @@ public class AssignFacultyMainAction extends ActionSupport implements SessionAwa
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
+	
 	public String getInfo() {
 		return Info;
 	}

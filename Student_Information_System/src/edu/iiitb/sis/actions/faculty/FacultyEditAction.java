@@ -68,6 +68,15 @@ public class FacultyEditAction extends ActionSupport implements SessionAware,Mod
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
+	}	
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
 	}	
 
 	public FacultyEdit getFaculty() {

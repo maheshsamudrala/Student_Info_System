@@ -1,4 +1,4 @@
-package edu.iiitb.sis.actions.admin.announcement;
+package edu.iiitb.sis.actions.student;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -6,74 +6,47 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 import edu.iiitb.sis.actions.authentication.SessionBean;
-import edu.iiitb.sis.dao.admin.announcement.AnnouncementDao;
-import edu.iiitb.sis.dao.admin.news.NewsDao;
-import edu.iiitb.sis.model.Announcement;;
-public class AddAnnouncementAction extends ActionSupport implements ModelDriven<Announcement>,SessionAware
+
+public class StudentHomePage extends ActionSupport implements SessionAware 
 {
 	
 	private static final long serialVersionUID = 1L;
-	private Announcement announcement=new Announcement();
-	private String message;
-	private AnnouncementDao announcementDao=new AnnouncementDao();
-	private NewsDao newsDao=new NewsDao();
-	
 	private Map<String,Object> sessionMap=null;
 	private ArrayList<String> announcementList=new ArrayList<String>();
 	private ArrayList<String> newsList=new ArrayList<String>();
 	private String loginName;
 	private SessionBean sessionBean;
-	
 	public String execute()
 	{
-		message=announcementDao.addAnnouncement(announcement);
 		
-		if(message.equalsIgnoreCase("success"))
-		{
-			return "success";
-		}
-		else
-		{
-			return "failure";
-		}
-		
+		return "success";
 	}
+	
 	public void setSession(Map<String, Object> map)
 	{
 		this.sessionMap=map;
 		this.sessionBean=(SessionBean) sessionMap.get("Session");
 		setSessionValues();
 	}
+	
+	//The following function sets the values with session values.
 	private void setSessionValues()
 	{
-		this.announcementList=announcementDao.getAnnouncements();
-		this.newsList=newsDao.getNews();
+		this.announcementList=sessionBean.getAnnouncementList();
+		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getUserName();
 		this.loggedInUser=sessionBean.getName();
 	}
 	private String loggedInUser;
-	
-	
-	public String getLoggedInUser() {
+	public String getLoggedInUser() 
+	{
 		return loggedInUser;
 	}
 	public void setLoggedInUser(String loggedInUser) {
 		this.loggedInUser = loggedInUser;
 	}
-	public String getMessage() 
-	{
-		return message;
-	}
-
-
-	public void setMessage(String message)
-	{
-		this.message = message;
-	}
-
 
 	public ArrayList<String> getAnnouncementList() {
 		return announcementList;
@@ -97,19 +70,6 @@ public class AddAnnouncementAction extends ActionSupport implements ModelDriven<
 
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
-	}
-
-	public SessionBean getSessionBean() {
-		return sessionBean;
-	}
-
-	public void setSessionBean(SessionBean sessionBean) {
-		this.sessionBean = sessionBean;
-	}
-
-	public Announcement getModel() 
-	{
-		return announcement;
-	}
-
+	}	
+	
 }

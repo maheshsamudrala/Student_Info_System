@@ -98,7 +98,8 @@ private AssignGradesDao AssignGradesDaoObj=new AssignGradesDao();
 		{
 			this.announcementList=sessionBean.getAnnouncementList();
 			this.newsList=sessionBean.getNewsList();
-			this.loginName=sessionBean.getName();
+			this.loginName=sessionBean.getUserName();
+			this.loggedInUser=sessionBean.getName();
 		}
 	
 	public ArrayList<String> getAnnouncementList() {
@@ -137,6 +138,14 @@ private AssignGradesDao AssignGradesDaoObj=new AssignGradesDao();
 	public void setCourselist(List<String> courselist) {
 		this.courselist = courselist;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 
 	public List<String> getStudentlist() {

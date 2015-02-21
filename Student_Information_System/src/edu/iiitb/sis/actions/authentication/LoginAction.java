@@ -50,7 +50,7 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 		}
 		else if(message.equalsIgnoreCase("Faculty"))
 		{
-			sessionBean.setName("Admin");
+			sessionBean.setName(authenticate.getFacultyName(login.getUserName()));
 			sessionBean.setUserName(login.getUserName());
 			sessionBean.setAnnouncementList(announcementList);
 			sessionBean.setNewsList(newsList);
@@ -61,7 +61,7 @@ public class LoginAction implements ModelDriven<Login>,SessionAware
 		}
 		else if(message.equalsIgnoreCase("Student"))
 		{
-			sessionBean.setName("Admin");
+			sessionBean.setName(authenticate.getStudentName(login.getUserName()));
 			sessionBean.setUserName(login.getUserName());
 			sessionBean.setAnnouncementList(announcementList);
 			sessionBean.setNewsList(newsList);

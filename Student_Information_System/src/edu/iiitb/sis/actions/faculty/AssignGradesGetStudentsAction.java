@@ -43,6 +43,14 @@ public class AssignGradesGetStudentsAction extends ActionSupport implements Sess
 	public ArrayList<String> getNewsList() {
 		return newsList;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public void setNewsList(ArrayList<String> newsList) {
 		this.newsList = newsList;
@@ -82,6 +90,7 @@ public class AssignGradesGetStudentsAction extends ActionSupport implements Sess
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	public List<String> getStudentlist() {
 		return studentlist;

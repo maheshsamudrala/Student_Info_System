@@ -35,48 +35,20 @@ public class FacultySearchAction extends ActionSupport implements SessionAware,M
 		this.obj = obj;
 	}
 	
-	
-	/*
-	private File myFile;
-	private String myFileContentType;
-	private String myFileFileName;
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
-	public File getMyFile() {
-		return myFile;
-	}
-	public void setMyFile(File myFile) {
-		this.myFile = myFile;
-	}
-	public String getMyFileContentType() {
-		return myFileContentType;
-	}
-	public void setMyFileContentType(String myFileContentType) {
-		this.myFileContentType = myFileContentType;
-	}
-	public String getMyFileFileName() {
-		return myFileFileName;
-	}
-	public void setMyFileFileName(String myFileFileName) {
-		this.myFileFileName = myFileFileName;
-	}
-	
-	public String destPath;
 
-	
-*/
 	Faculty_Search_Dao service = new Faculty_Search_Dao();
 		
 		public String execute()
-		{
-//			destPath="/home/paras/workspace/Student_Information_System/WebContent/images";
-/*			
-			try {
-				File destFile = new File(destPath,myFileFileName);
-				FileUtils.copyFile(myFile, destFile);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-*/			
+		{			
 			if(service.search(obj /*, "images/"+myFileFileName*/)){
 				System.out.println("hul");
 				return "success";
@@ -94,6 +66,7 @@ public class FacultySearchAction extends ActionSupport implements SessionAware,M
 			this.announcementList=sessionBean.getAnnouncementList();
 			this.newsList=sessionBean.getNewsList();
 			this.loginName=sessionBean.getUserName();
+			this.loggedInUser=sessionBean.getName();
 		}
 		public Faculty_Search_Model getModel() {
 			return obj;

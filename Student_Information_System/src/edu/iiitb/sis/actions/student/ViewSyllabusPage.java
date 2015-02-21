@@ -39,7 +39,8 @@ public class ViewSyllabusPage extends ActionSupport implements SessionAware
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	public ArrayList<String> getAnnouncementList() {
 		return announcementList;
@@ -50,6 +51,15 @@ public class ViewSyllabusPage extends ActionSupport implements SessionAware
 	public ArrayList<String> getNewsList() {
 		return newsList;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
+	
 	public void setNewsList(ArrayList<String> newsList) {
 		this.newsList = newsList;
 	}

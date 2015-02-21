@@ -54,6 +54,14 @@ public class GetFacultyDetailsAction extends ActionSupport implements ModelDrive
 	public String getMessage() {
 		return message;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public void setMessage(String message) {
 		this.message = message;
@@ -117,7 +125,8 @@ public class GetFacultyDetailsAction extends ActionSupport implements ModelDrive
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	
 	

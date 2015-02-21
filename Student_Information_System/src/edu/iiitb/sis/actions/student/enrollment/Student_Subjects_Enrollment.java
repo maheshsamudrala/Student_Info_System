@@ -62,7 +62,16 @@ public class Student_Subjects_Enrollment extends ActionSupport implements ModelD
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public ArrayList<String> getAnnouncementList() {
 		return announcementList;

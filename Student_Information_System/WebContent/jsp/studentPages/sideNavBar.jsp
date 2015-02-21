@@ -2,7 +2,7 @@
 
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i class="fa fa-home "></i>&nbsp;Home</a></li>
+     <li  class="active"><a href="StudentHomePageAction"><i class="fa fa-home "></i>&nbsp;Home</a></li>
    
 </ul>
 </div>

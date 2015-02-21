@@ -70,7 +70,15 @@ public class Faculty_AssignSubjectAction extends ActionSupport implements Sessio
 		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getName();
 	}
-	
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
+
 	
 		//Method for Updating Database with Faculty_course
 		 

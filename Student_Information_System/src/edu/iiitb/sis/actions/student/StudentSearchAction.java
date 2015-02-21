@@ -63,7 +63,8 @@ public class StudentSearchAction extends ActionSupport implements SessionAware,M
 		{
 			this.announcementList=sessionBean.getAnnouncementList();
 			this.newsList=sessionBean.getNewsList();
-			this.loginName=sessionBean.getName();
+			this.loginName=sessionBean.getUserName();
+			this.loggedInUser=sessionBean.getName();
 		}	
 		
 		public ArrayList<String> getAnnouncementList() {
@@ -97,6 +98,14 @@ public class StudentSearchAction extends ActionSupport implements SessionAware,M
 		public void setMessage(String message) {
 			this.message = message;
 		}
+		private String loggedInUser;
+		public String getLoggedInUser() 
+		{
+			return loggedInUser;
+		}
+		public void setLoggedInUser(String loggedInUser) {
+			this.loggedInUser = loggedInUser;
+		}	
 
 		public Student_Search_Model getModel()
 		{

@@ -44,6 +44,15 @@ public class UpdateFacultyDetailsAction extends ActionSupport implements ModelDr
 	{
 		this.newsList = newsList;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
+
 	public String getLoginName()
 	{
 		return loginName;
@@ -75,7 +84,8 @@ public class UpdateFacultyDetailsAction extends ActionSupport implements ModelDr
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	
 	

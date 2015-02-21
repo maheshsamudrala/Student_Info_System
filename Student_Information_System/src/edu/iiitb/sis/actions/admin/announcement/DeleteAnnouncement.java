@@ -51,9 +51,18 @@ public class DeleteAnnouncement extends ActionSupport implements SessionAware
 	{
 		this.announcementList=announcementDao.getAnnouncements();
 		this.newsList=newsDao.getNews();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
+	private String loggedInUser;
 	
+	
+	public String getLoggedInUser() {
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}
 	public ArrayList<String> getAnnouncementList() {
 		return announcementList;
 	}

@@ -54,10 +54,19 @@ public class AssignGradesNoAction extends ActionSupport implements SessionAware
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	public String getCoursename() {
 		return coursename;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public void setCoursename(String coursename) {
 		this.coursename = coursename;

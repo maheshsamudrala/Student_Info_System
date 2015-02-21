@@ -1,5 +1,5 @@
  <div class="navbar navbar-default " >
-    <div class="col-lg-4"><p style="font-size:125%";> <s:property value="loginName"/></p></div>
+    <div class="col-lg-4"><p style="font-size:125%";> <s:property value="loggedInUser"/></p></div>
     <div class="col-lg-4">
          <div class="navbar-collapse collapse navbar-responsive-collapse" style="text-align:center">
             

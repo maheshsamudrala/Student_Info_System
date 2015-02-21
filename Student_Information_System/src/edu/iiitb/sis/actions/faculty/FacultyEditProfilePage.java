@@ -37,6 +37,7 @@ public class FacultyEditProfilePage extends ActionSupport implements SessionAwar
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
 		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}	
 	public ArrayList<String> getAnnouncementList() {
 		return announcementList;
@@ -61,6 +62,14 @@ public class FacultyEditProfilePage extends ActionSupport implements SessionAwar
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
 	}
-	
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
+
 
 }

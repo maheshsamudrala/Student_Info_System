@@ -26,6 +26,7 @@ public class HomePageAction extends ActionSupport implements SessionAware
 	public String execute()
 	{
 		System.out.println(sessionBean.getName());
+		System.out.println("Entering into "+sessionBean.getName()+" Profile");
 		return "success";
 	}
 	public void setSession(Map<String, Object> map)
@@ -38,7 +39,8 @@ public class HomePageAction extends ActionSupport implements SessionAware
 	{
 		this.announcementList=announcementDao.getAnnouncements();
 		this.newsList=newsDao.getNews();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	public ArrayList<String> getAnnouncementList() 
 	{
@@ -60,6 +62,15 @@ public class HomePageAction extends ActionSupport implements SessionAware
 	{
 		return loginName;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
+	
 	public void setLoginName(String loginName) 
 	{
 		this.loginName = loginName;

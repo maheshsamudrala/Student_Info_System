@@ -65,7 +65,15 @@ public class AddStudentAction extends ActionSupport implements SessionAware,Serv
 		return "success";
 	}
 	
-	
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
+
 	public ArrayList<String> getAnnouncementList()
 	{
 		return announcementList;
@@ -135,7 +143,8 @@ public class AddStudentAction extends ActionSupport implements SessionAware,Serv
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 
 }

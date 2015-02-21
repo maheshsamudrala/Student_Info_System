@@ -44,8 +44,17 @@ public class DeleteNewsPage extends ActionSupport implements SessionAware,ModelD
 	{
 		this.announcementList=announcementDao.getAnnouncements();
 		this.newsList=newsDao.getNews();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public SessionBean getModel() {
 		

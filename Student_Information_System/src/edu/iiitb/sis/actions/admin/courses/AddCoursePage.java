@@ -38,7 +38,8 @@ public class AddCoursePage extends ActionSupport implements SessionAware
 	{
 		this.announcementList=sessionBean.getAnnouncementList();
 		this.newsList=sessionBean.getNewsList();
-		this.loginName=sessionBean.getName();
+		this.loginName=sessionBean.getUserName();
+		this.loggedInUser=sessionBean.getName();
 	}
 	
 	//Getters and Setters
@@ -46,6 +47,14 @@ public class AddCoursePage extends ActionSupport implements SessionAware
 	{
 		return announcementList;
 	}
+	private String loggedInUser;
+	public String getLoggedInUser() 
+	{
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}	
 
 	public void setAnnouncementList(ArrayList<String> announcementList) 
 	{
