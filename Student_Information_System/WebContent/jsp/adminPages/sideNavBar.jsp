@@ -44,7 +44,7 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i  class="fa fa-gear"></i>&nbsp;Interest Settings</a></li> 
+     <li  class="active"><a href="addInterestPage"><i  class="fa fa-gear"></i>&nbsp;Interest Settings</a></li> 
    
 </ul>
 </div>

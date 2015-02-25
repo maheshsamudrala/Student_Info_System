@@ -1,84 +1,109 @@
 package edu.iiitb.sis.actions.student;
-	import java.io.InputStream;
-	import java.sql.Blob;
-	import java.sql.Connection;
-	import java.sql.DriverManager;
-	import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
 
-	public class Result  {
-		public String grade;
-		public String result;
-		public int marks;
-		public String student_rollno;
+import java.util.ArrayList;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+import edu.iiitb.sis.actions.authentication.SessionBean;
+import edu.iiitb.sis.dao.student.ResultDAO;
+import edu.iiitb.sis.model.Result_Model;
+	public class Result extends ActionSupport implements SessionAware,ModelDriven<Result_Model>
+	{
+		
+		private static final long serialVersionUID = 1L;
+		Result_Model obj = new Result_Model();
+		ResultDAO service = new ResultDAO();
+		private Map<String,Object> sessionMap=null;
+		private ArrayList<String> announcementList=new ArrayList<String>();
+		private ArrayList<String> newsList=new ArrayList<String>();
+		private String loginName;
+		private SessionBean sessionBean;
+		private String loggedInUser;
+
+		public String execute()
+		{
+			System.out.println("Inside Result Function");
+			if(service.check(obj,loginName))
+			{	
+				return "success";
+			}
+			else
+			{	
+				return "failure";
+			}	
+		}
+
+		public Result_Model getModel() 
+		{
+			return obj;
+		}
+		public void setSession(Map<String, Object> map)
+		{
+			this.sessionMap=map;
+			this.sessionBean=(SessionBean) sessionMap.get("Session");
+			setSessionValues();
+		}
+		//The following function sets the values with session values.
+		private void setSessionValues()
+		{
+			this.announcementList=sessionBean.getAnnouncementList();
+			this.newsList=sessionBean.getNewsList();
+			this.loginName=sessionBean.getUserName();
+			this.loggedInUser=sessionBean.getName();
+		}
+
+		public ArrayList<String> getAnnouncementList()
+		{
+			return announcementList;
+		}
+
+		public void setAnnouncementList(ArrayList<String> announcementList)
+		{
+			this.announcementList = announcementList;
+		}
+
+		public ArrayList<String> getNewsList() 
+		{
+			return newsList;
+		}
+
+		public void setNewsList(ArrayList<String> newsList)
+		{
+			this.newsList = newsList;
+		}
+
+		public String getLoginName() 
+		{
+			return loginName;
+		}
+
+		public void setLoginName(String loginName)
+		{
+			this.loginName = loginName;
+		}
+
+		public String getLoggedInUser() 
+		{
+			return loggedInUser;
+		}
+
+		public void setLoggedInUser(String loggedInUser)
+		{
+			this.loggedInUser = loggedInUser;
+		}
+
+		public Result_Model getObj() {
+			return obj;
+		}
+
+		public void setObj(Result_Model obj) {
+			this.obj = obj;
+		}	
 		
 		
-		public String getGrade() {
-			return grade;
-		}
-
-
-		public void setGrade(String grade) {
-			this.grade = grade;
-		}
-
-
-		public String getResult() {
-			return result;
-		}
-
-
-		public void setResult(String result) {
-			this.result = result;
-		}
-
-
-		public int getMarks() {
-			return marks;
-		}
-
-
-		public void setMarks(int marks) {
-			this.marks = marks;
-		}
-
-
-		public String getStudent_rollno() {
-			return student_rollno;
-		}
-
-
-		public void setStudent_rollno(String student_rollno) {
-			this.student_rollno = student_rollno;
-		}
-
-
-		public String execute() {
-			
-			try{
-				Class.forName("com.mysql.jdbc.Driver");
-				Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/student_info_system","root","root");
-				
-				PreparedStatement ps=((java.sql.Connection) con).prepareStatement("select * from marks where student_rollno="+getStudent_rollno()+";");
-				//ps.setString(1,ID);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()){    
-				   setGrade(rs.getString("grade"));  
-				   setResult(rs.getString("result"));  
-				   setMarks(rs.getInt("marks"));  
-				   setStudent_rollno(rs.getString("student_rollno"));
-				   }
-			rs.close();
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			 		return "Success";
-			
-			
-		}
+		
 	}
-
-
-

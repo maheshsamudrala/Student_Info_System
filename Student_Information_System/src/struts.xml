@@ -111,6 +111,15 @@
         <result name="success">/jsp/adminPages/facultyPages/updateFacultyDetails.jsp</result> 
         <result name="failure">/jsp/index.jsp</result>
       </action>
+      
+      <!-- Interest Actions -->
+      <action name="addInterestPage" class="edu.iiitb.sis.actions.admin.interest.AddInterestPageAction" >
+		<result name="success">/jsp/adminPages/interestPages/AdminAddInterest.jsp</result>
+   	 </action>
+      <action name="add_interest" class="edu.iiitb.sis.actions.admin.interest.Admin_Add_Interest_Action" >
+		<result name="success">/jsp/adminPages/interestPages/AdminAddInterest.jsp</result>
+		<result name="failure">/jsp/adminPages/interestPages/AdminAddInterest.jsp</result>
+   	 </action>
 
            <!-- Adding/Deleting Announcement Actions  -->
       <action name="addAnnouncementPage" class="edu.iiitb.sis.actions.admin.announcement.AddAnnouncementPage"  method ="execute">
@@ -235,7 +244,8 @@
        <!-- View Results -->
        <action name="Result" class="edu.iiitb.sis.actions.student.Result" method="execute">
       	<result name="success">/jsp/studentPages/viewResult/ShowResult.jsp</result>
-      </action>
+      	<result name="failure">/jsp/studentPages/viewResult/ShowResult.jsp</result>
+       </action>
        
        <!-- Student Enrollment -->
        

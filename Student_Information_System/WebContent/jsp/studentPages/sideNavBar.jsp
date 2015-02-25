@@ -29,7 +29,7 @@
 </div>
 <div class="frame1">
 <ul class="nav nav-pills nav-stacked">
-     <li  class="active"><a href="#"><i class="fa fa-check-circle-o fa-fw"></i>&nbsp;View Results</a></li>
+     <li  class="active"><a href="Result"><i class="fa fa-check-circle-o fa-fw"></i>&nbsp;View Results</a></li>
    
 </ul>
 </div>
